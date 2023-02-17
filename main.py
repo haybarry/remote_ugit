@@ -1,6 +1,6 @@
 import machine
 import network
-# import ugit
+import ugit
 
 import gc
 print("RAM used = {RAM_used}kb".format(RAM_used = gc.mem_alloc()/1024))
@@ -29,4 +29,6 @@ ota = machine.Pin(17, machine.Pin.IN, machine.Pin.PULL_UP)
 # config.password = '221d33a55b32bb74bd18a5ead330901f40d3a2ba'
 
 while True:
-    green.value(button.value())
+    red.value(button.value())
+    if ota.value()==0:
+        ugit.pull_all()
